@@ -1,5 +1,5 @@
 (function(){
-  var endpoint = "http://blogs.vcu.edu/dakratochwill/wp-json/wp/v2/posts",
+  var endpoint = "http://blogs.vcu.edu/dakratochwill/wp-json/wp/v2",
       itemsPerPage = 3,
       vm;
 
