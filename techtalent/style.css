@@ -13,15 +13,19 @@ h2,
 h3 {
     font-weight: 700;
 }
+
 h1 {
     font-size: 40px;
 }
+
 h2 {
     font-size: 35px
 }
+
 h3 {
     font-size: 25px
 }
+
 img {
     max-width: 100%;
 }
@@ -78,8 +82,25 @@ a:hover {
     color: #000;
 }
 
+.masthead {
+    height: 50vh;
+    background-image: url('techtalentArtboard%201@3x.png');
+    background-size: cover;
+    background-position: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+    font-size: 60px;
+    font-weight: 700;
+    text-shadow: 3px 3px 3px #1f6861;
+}
+
+.masthead .overlay {
+    background: rgba(31, 104, 97, 0.9);
+}
+
 .masthead img {
-    max-width: 100%;
+    max-width: 400px;
 }
 
 .main {
@@ -115,12 +136,14 @@ a:hover {
     border-radius: 50%;
     margin: 0px auto;
 }
+
 .grid-item.icon {
     font-size: 200px;
     color: #1f6861;
     display: block;
     margin: 0px auto;
 }
+
 .btm-content {
     position: relative;
     padding: 40px 20px;
@@ -165,6 +188,7 @@ footer a {
     color: inherit;
     font-weight: 700;
     transition: 200ms ease;
+    text-decoration: none;
 }
 
 footer a:hover {
@@ -176,11 +200,11 @@ footer a:hover {
     .main h1 {
         font-size: 30px;
     }
-    
+
     .grid {
         grid-template-columns: auto;
     }
-    
+
     .grid-item {
         padding: 20px;
     }
