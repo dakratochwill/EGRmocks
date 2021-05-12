@@ -177,3 +177,21 @@
         return this
     }
 })(jQuery);
+
+// controls rss feed table
+
+$("#rss-feeds").rss("https://vcu.joinhandshake.com/external_feeds/10018/public.rss?token=i8Qo8j2ReOenY_3j0DMvHOO3cdhZQNtfYzQRZA0aVvtsDbQDtjWFhA", {
+    limit: 300,
+    layoutTemplate: "{entries}",
+    entryTemplate: "<tr><td><a href='{url}'>{title}</a></td><td>{shortBodyPlain}...</td><td>{date}</td></tr>",
+    dateFormat: "MMMM D, YYYY",
+});
+
+// prevents dataTables from initializing before page is fully loaded
+
+window.addEventListener("load", function () {
+    $('#example').DataTable({
+        "ordering": false,
+        "lengthMenu": [[25, 500, 100, -1], [25, 50, 100, "All"]]
+    });
+});

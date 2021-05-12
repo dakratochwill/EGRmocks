@@ -187,24 +187,8 @@
     </table>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-    <script>
-        window.addEventListener("load", function() {
-            $('#example').DataTable({
-                "ordering": false,
-                "lengthMenu": [[25, 500, 100, -1], [25, 50, 100, "All"]]
-            });
-        });
-    </script>
     <script src="https://cdn.rawgit.com/timrwood/moment/1.7.2/min/moment.min.js"></script>
     <script src="jquery-rss.js"></script>
-    <script>
-        $("#rss-feeds").rss("https://vcu.joinhandshake.com/external_feeds/10018/public.rss?token=i8Qo8j2ReOenY_3j0DMvHOO3cdhZQNtfYzQRZA0aVvtsDbQDtjWFhA", {
-            limit: 300,
-            layoutTemplate: "{entries}",
-            entryTemplate: "<tr><td><a href='{url}'>{title}</a></td><td>{shortBodyPlain}...</td><td>{date}</td></tr>",
-            dateFormat: "MMMM D, YYYY",
-        });
-    </script>
     </div>
     <footer id="footer">
         <div class="container">
