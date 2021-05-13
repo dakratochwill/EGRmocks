@@ -1,3 +1,5 @@
+$('#example').hide();
+
 (function (d) {
     var e = function (a, b, c, f) {
         this.target = a;
@@ -194,4 +196,6 @@ window.addEventListener("load", function () {
         "ordering": false,
         "lengthMenu": [[25, 500, 100, -1], [25, 50, 100, "All"]]
     });
+    $('#loading').hide();
+    $('#example').show()
 });

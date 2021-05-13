@@ -54,6 +54,27 @@
     <!-- JP List Styles -->
     <link href="//egr.vcu.edu/media/school-of-engineering/egr-main/js/jplist/jplist.core.min.css" rel="stylesheet" type="text/css" />
     <link href="//egr.vcu.edu/media/school-of-engineering/egr-main/js/jplist/jplist.custom.css" rel="stylesheet" type="text/css">
+    <style>
+        .loader {
+            border: 16px solid #f3f3f3;
+            /* Light grey */
+            border-top: 16px solid #ffb300;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body class="s">
@@ -177,18 +198,21 @@
         </div>
     </nav>
     <div class="page" style="margin: 50px 8vw;">
+        <div id="loading" style="max-width: 300px;margin: 20px auto;text-align: center;">
+            <div class="loader" style="margin: 10px auto;"></div>Page loading. Please wait...
+        </div>
         <table class="table table-bordered table-striped" id="example">
-        <thead>
-            <th>Job Title</th>
-            <th>Description</th>
-            <th width="200px;">Date Posted</th>
-        </thead>
-        <tbody id="rss-feeds"></tbody>
-    </table>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.rawgit.com/timrwood/moment/1.7.2/min/moment.min.js"></script>
-    <script src="jquery-rss.js"></script>
+            <thead>
+                <th>Job Title</th>
+                <th>Description</th>
+                <th width="200px;">Date Posted</th>
+            </thead>
+            <tbody id="rss-feeds"></tbody>
+        </table>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.rawgit.com/timrwood/moment/1.7.2/min/moment.min.js"></script>
+        <script src="jquery-rss.js"></script>
     </div>
     <footer id="footer">
         <div class="container">
@@ -225,22 +249,22 @@
                 </a>
             </div>
             <div class="social-links col-md-12">
-              <a class="social-link fab fa-facebook-f" href="https://www.facebook.com/VCUEngineering/">Facebook</a>
-              <a class="social-link fab fa-twitter" href="https://twitter.com/VCUENGR">Twitter</a>
-              <a class="social-link fab fa-youtube" href="https://www.youtube.com/user/VCUSchoolOfEngr">YouTube</a>
-              <a class="social-link fab fa-linkedin-in" href="https://www.linkedin.com/edu/school?id=170031">Linkedin</a>
-              <a class="social-link fab fa-instagram" href="https://www.instagram.com/vcu_eng/">Instagram</a>
-              <a href="https://vcuengineering.exposure.co/"><img src="//egr.vcu.edu/media/school-of-engineering/icons/ExposureLogo.png" style="max-width:200px;vertical-align:top;" alt="Exposure logo"></a>
+                <a class="social-link fab fa-facebook-f" href="https://www.facebook.com/VCUEngineering/">Facebook</a>
+                <a class="social-link fab fa-twitter" href="https://twitter.com/VCUENGR">Twitter</a>
+                <a class="social-link fab fa-youtube" href="https://www.youtube.com/user/VCUSchoolOfEngr">YouTube</a>
+                <a class="social-link fab fa-linkedin-in" href="https://www.linkedin.com/edu/school?id=170031">Linkedin</a>
+                <a class="social-link fab fa-instagram" href="https://www.instagram.com/vcu_eng/">Instagram</a>
+                <a href="https://vcuengineering.exposure.co/"><img src="//egr.vcu.edu/media/school-of-engineering/icons/ExposureLogo.png" style="max-width:200px;vertical-align:top;" alt="Exposure logo"></a>
             </div>
-          	<div class="row" style="display: flex;align-items: center;">
+            <div class="row" style="display: flex;align-items: center;">
                 <div class="col-md-10">
                     <small><a href="https://www.vcu.edu/vcu/privacy-statement.html" title="VCU privacy statement" target="_blank">Privacy</a> / <a href="http://accessibility.vcu.edu/" title="Accessibility at VCU" target="_blank">Accessibility</a> / <a href="mailto:webmaster@vcu.edu" title="Contact the VCU web developer" target="_blank">Web Developer</a> / <a href="https://vaccinate.virginia.gov/">Vaccinate Virginia</a> / <a href="https://text.vcu.edu/tt/referrer">View text version</a> / Updated: <script>
-                                var d = new Date(document.lastModified);
-                                document.write(d.toLocaleDateString());
-                            </script>
-                            <a class="t4Edit-page" href="https://t4.vcu.edu/terminalfour/page/directEdit#edit/582/en/59867">Edit</a></small></div>
+                            var d = new Date(document.lastModified);
+                            document.write(d.toLocaleDateString());
+                        </script>
+                        <a class="t4Edit-page" href="https://t4.vcu.edu/terminalfour/page/directEdit#edit/582/en/59867">Edit</a></small></div>
                 <div class="col-md-2"><a href="https://diversityrecognition.asee.org/recognized-institutions/"><img src="//egr.vcu.edu/media/school-of-engineering/images/egr/2019DiversityRecognitionBadge-Bronze.png" style="padding-bottom:50px;" alt="ASEE Diversity Badge"></a></div>
-            </div>    
+            </div>
         </div>
     </footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
