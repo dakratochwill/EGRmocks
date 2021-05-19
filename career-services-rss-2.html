@@ -201,18 +201,38 @@
         <div id="loading" style="max-width: 300px;margin: 20px auto;text-align: center;">
             <div class="loader" style="margin: 10px auto;"></div>Page loading. Please wait...
         </div>
-        <table class="table table-bordered table-striped" id="example">
-            <thead>
-                <th>Job Title</th>
-                <th>Description</th>
-                <th width="200px;">Date Posted</th>
-            </thead>
-            <tbody id="rss-feeds"></tbody>
-        </table>
+        <div id="page-content">
+            <h2>Highlighted Jobs</h2>
+            Google sheet that controls this table: <a href="https://docs.google.com/spreadsheets/d/1YxBDR6E2KalGFbSwSKtZB1phgzDrW0_N1IvjQtsyDOE/edit#gid=0" target="_blank">https://docs.google.com/spreadsheets/d/1YxBDR6E2KalGFbSwSKtZB1phgzDrW0_N1IvjQtsyDOE/edit#gid=0</a>
+            <p>&nbsp;</p>
+            <table id="hotjobs" class="table table-bordered table-hover table-striped" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Employer</th>
+                        <th>Date Posted</th>
+                        <th>Expires</th>
+                        <th>Location</th>
+                        <th>Job Type</th>
+                    </tr>
+                </thead>
+                <tbody id="demo"></tbody>
+            </table>
+            <script src="hot-jobs.js"></script>
+            <h2>Jobs on Handshake</h2>
+            <table class="table table-bordered table-striped" id="example">
+                <thead>
+                    <th>Job Title</th>
+                    <th width="200px;">Date Posted</th>
+                </thead>
+                <tbody id="rss-feeds"></tbody>
+            </table>
+        </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.rawgit.com/timrwood/moment/1.7.2/min/moment.min.js"></script>
         <script src="jquery-rss.js"></script>
+
     </div>
     <footer id="footer">
         <div class="container">

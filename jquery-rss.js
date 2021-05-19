@@ -1,4 +1,4 @@
-$('#example').hide();
+$('#page-content').hide();
 
 (function (d) {
     var e = function (a, b, c, f) {
@@ -185,7 +185,7 @@ $('#example').hide();
 $("#rss-feeds").rss("https://vcu.joinhandshake.com/external_feeds/10018/public.rss?token=i8Qo8j2ReOenY_3j0DMvHOO3cdhZQNtfYzQRZA0aVvtsDbQDtjWFhA", {
     limit: 300,
     layoutTemplate: "{entries}",
-    entryTemplate: "<tr><td><a href='{url}'>{title}</a></td><td>{shortBodyPlain}...</td><td>{date}</td></tr>",
+    entryTemplate: "<tr><td><a href='{url}'>{title}</a></td><td>{date}</td></tr>",
     dateFormat: "MMMM D, YYYY",
 });
 
@@ -197,5 +197,5 @@ window.addEventListener("load", function () {
         "lengthMenu": [[25, 500, 100, -1], [25, 50, 100, "All"]]
     });
     $('#loading').hide();
-    $('#example').show()
+    $('#page-content').show();
 });
