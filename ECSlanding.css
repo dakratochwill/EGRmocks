@@ -1,0 +1,87 @@
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.ecs-hero {
+    background: #000;
+}
+
+.ecs-hero img {
+    max-width: 100%;
+    height: auto;
+    margin: 0px auto;
+    display: block;
+}
+
+.ecs-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    max-width: 1500px;
+    margin: 0px auto;
+}
+
+.ecs-quick-links,
+.ecs-grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    max-width: 1500px;
+    margin: 0px auto;
+}
+
+.ecs-quick-links p {
+    margin: 20px 0px;
+}
+
+.ecs-quick-links i {
+    margin-right: 10px;
+    font-size: 25px;
+    vertical-align: middle
+}
+
+.ecs-quick-links .button-blk a {
+    display: block;
+}
+
+.button-blk a {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 30px;
+    display: inline-block;
+}
+
+.button-blk a:hover {
+    background: #fff;
+    color: #000 !important;
+}
+
+.ecs-grid-4 .card {
+    border: 1px solid #ececec;
+    padding: 20px;
+}
+
+.ecs-grid-4 .card h1 {
+    font-size: 60px;
+    color: #ffb300;
+}
+
+.ecs-grid-4 .card i {
+    font-size: 80px;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .ecs-quick-links,
+    .ecs-grid-4,
+    .ecs-grid-2 {
+        grid-template-columns: auto;
+        grid-gap: 10px;
+    }
+
+    .ecs-quick-links p {
+        margin: 10px 15px;
+    }
+}
