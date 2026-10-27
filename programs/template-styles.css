@@ -1,0 +1,913 @@
+/* =====================================================================
+   VCU College of Engineering — Undergraduate Program Page
+   Shared stylesheet for every program page.
+
+   - Every rule is scoped under the .vcu-program wrapper.
+   - Colors and fonts use ONLY the VCU brand variables defined below.
+   - Merriweather and Roboto are loaded by the host site.
+   - Class names use a "vp-" prefix to avoid clashing with site styles.
+   ===================================================================== */
+
+.vcu-program {
+  /* VCU brand palette */
+  --vcu-gold: #ffb300;
+  --vcu-black: #000000;
+  --vcu-white: #ffffff;
+  --vcu-gray: #dedede;
+  --vcu-gold-tint: #ffe199;
+  --vcu-dark-gray: #63656A;
+  --vcu-light-gray: #ececec;
+
+  /* VCU brand typography */
+  --font-display: "Merriweather", serif;
+  --font-body: "Roboto", sans-serif;
+
+  /* Layout tokens (spacing only, no color) */
+  --vp-max: 1400px;
+  --vp-gutter: clamp(16px, 4vw, 40px);
+  --vp-section-y: clamp(56px, 8vw, 104px);
+  --vp-gap: clamp(20px, 3vw, 32px);
+
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--vcu-black);
+  background: var(--vcu-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Local reset (guards against host-site element styles) ---------- */
+
+.vcu-program *,
+.vcu-program *::before,
+.vcu-program *::after {
+  box-sizing: border-box;
+}
+
+.vcu-program :where(h1, h2, h3, h4, p, ul, ol, dl, dt, dd, figure, blockquote) {
+  margin: 0;
+  padding: 0;
+}
+
+.vcu-program :where(ul, ol) {
+  list-style: none;
+}
+
+.vcu-program :where(h1, h2, h3, h4) {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  color: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.vcu-program img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.vcu-program a {
+  color: inherit;
+}
+
+.vcu-program :focus-visible {
+  outline: 3px solid var(--vcu-black);
+  outline-offset: 3px;
+}
+
+.vcu-program .vp-section--black :focus-visible {
+  outline-color: var(--vcu-gold);
+}
+
+.vcu-program .vp-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Layout ---------- */
+
+.vcu-program .vp-container {
+  width: 100%;
+  max-width: calc(var(--vp-max) + 2 * var(--vp-gutter));
+  margin-inline: auto;
+  padding-inline: var(--vp-gutter);
+}
+
+.vcu-program .vp-section {
+  padding-block: var(--vp-section-y);
+  background: var(--vcu-white);
+  color: var(--vcu-black);
+}
+
+.vcu-program .vp-section--black {
+  background: var(--vcu-black);
+  color: var(--vcu-white);
+}
+
+.vcu-program .vp-section--gold {
+  background: var(--vcu-gold);
+}
+
+.vcu-program .vp-section--tint {
+  background: var(--vcu-gold-tint);
+}
+
+.vcu-program .vp-section--gray {
+  background: var(--vcu-light-gray);
+}
+
+.vcu-program .vp-section-head {
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+/* ---------- Type ---------- */
+
+.vcu-program .vp-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vcu-black);
+}
+
+.vcu-program .vp-eyebrow::before {
+  content: "";
+  flex: none;
+  width: 32px;
+  height: 3px;
+  background: var(--vcu-gold);
+}
+
+.vcu-program .vp-section--black .vp-eyebrow {
+  color: var(--vcu-gold);
+}
+
+.vcu-program .vp-section--gold .vp-eyebrow,
+.vcu-program .vp-section--tint .vp-eyebrow,
+.vcu-program .vp-section--gray .vp-eyebrow {
+  color: var(--vcu-black);
+}
+
+.vcu-program .vp-section--gold .vp-eyebrow::before {
+  background: var(--vcu-black);
+}
+
+.vcu-program .vp-section--gray .vp-eyebrow::before {
+    background-color: var(--vcu-dark-gray);
+}
+
+.vcu-program .vp-heading {
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.vcu-program .vp-lead {
+  margin-top: 20px;
+  font-size: 1.1875rem;
+}
+
+.vcu-program .vp-subhead {
+  margin: 48px 0 16px;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.vcu-program .vp-section--black .vp-subhead {
+  color: var(--vcu-gold);
+}
+
+/* ---------- Buttons and links ---------- */
+
+.vcu-program .vp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.vcu-program .vp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 28px;
+  border: 2px solid var(--vcu-gold);
+  background: var(--vcu-gold);
+  color: var(--vcu-black);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.vcu-program .vp-btn:hover {
+  background: var(--vcu-black);
+  border-color: var(--vcu-black);
+  color: var(--vcu-gold);
+}
+
+.vcu-program .vp-btn--outline {
+  background: transparent;
+  border-color: currentColor;
+  color: inherit;
+}
+
+.vcu-program .vp-btn--outline:hover {
+  background: var(--vcu-black);
+  border-color: var(--vcu-black);
+  color: var(--vcu-white);
+}
+
+/* Buttons on black */
+.vcu-program .vp-section--black .vp-btn:hover {
+  background: var(--vcu-white);
+  border-color: var(--vcu-white);
+  color: var(--vcu-black);
+}
+
+.vcu-program .vp-section--black .vp-btn--outline {
+  border-color: var(--vcu-white);
+  color: var(--vcu-white);
+}
+
+/* Buttons on gold */
+.vcu-program .vp-section--gold .vp-btn {
+  background: var(--vcu-black);
+  border-color: var(--vcu-black);
+  color: var(--vcu-white);
+}
+
+.vcu-program .vp-section--gold .vp-btn:hover {
+  background: var(--vcu-white);
+  border-color: var(--vcu-black);
+  color: var(--vcu-black);
+}
+
+.vcu-program .vp-section--gold .vp-btn--outline {
+  background: transparent;
+  color: var(--vcu-black);
+}
+
+.vcu-program .vp-section--gold .vp-btn--outline:hover {
+  background: var(--vcu-black);
+  color: var(--vcu-gold);
+}
+
+.vcu-program .vp-link {
+  font-weight: 700;
+}
+
+.vcu-program .vp-link:hover {
+  text-decoration-color: currentColor;
+}
+
+.vcu-program .vp-section--tint .vp-link,
+.vcu-program .vp-section--gold .vp-link {
+  text-decoration-color: var(--vcu-black);
+}
+
+/* ---------- Photos ---------- */
+
+.vcu-program .vp-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--vcu-gray);
+}
+
+.vcu-program .vp-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =====================================================================
+   SECTIONS
+   ===================================================================== */
+
+/* ---------- Hero ---------- */
+
+.vcu-program .vp-hero {
+  padding-block: clamp(48px, 7vw, 96px);
+  overflow-x: clip;
+}
+
+.vcu-program .vp-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.9fr);
+  gap: clamp(40px, 6vw, 88px);
+  align-items: center;
+}
+
+.vcu-program .vp-hero__title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.005em;
+}
+
+.vcu-program .vp-hero__title em {
+  font-style: normal;
+  color: var(--vcu-gold);
+}
+
+.vcu-program .vp-hero__intro {
+  max-width: 60ch;
+  margin-top: 28px;
+  font-size: 1.125rem;
+  color: var(--vcu-gray);
+}
+
+.vcu-program .vp-hero__media {
+  position: relative;
+}
+
+/* ---------- Stats band ---------- */
+
+.vcu-program .vp-stats {
+  padding: 0;
+}
+
+.vcu-program .vp-stats__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.vcu-program .vp-stat {
+  padding: 2.5em;
+  border-left: 1px solid var(--vcu-black);
+}
+
+.vcu-program .vp-stat:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.vcu-program .vp-stat__value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.vcu-program .vp-stat__label {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ---------- Event banner (optional) ---------- */
+
+.vcu-program .vp-event {
+  padding: 2em;
+}
+
+.vcu-program .vp-event__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 32px;
+}
+
+.vcu-program .vp-event__name {
+  font-size: 1.25rem;
+  font-weight: 600;
+    color: var(--vcu-gold);
+}
+
+.vcu-program .vp-event__details {
+  flex: 1 1 360px;
+}
+
+/* ---------- Numbered cards (What you'll study) ---------- */
+
+.vcu-program .vp-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--vp-gap);
+  counter-reset: vp-card;
+}
+
+.vcu-program .vp-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+  background: var(--vcu-white);
+  border: 1px solid var(--vcu-gray);
+  counter-increment: vp-card;
+}
+
+.vcu-program .vp-card::before {
+  content: counter(vp-card, decimal-leading-zero);
+  margin-bottom: 20px;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--vcu-dark-gray);
+}
+
+.vcu-program .vp-card__title {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+/* ---------- Hands-on experience ---------- */
+
+.vcu-program .vp-split {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+}
+
+.vcu-program .vp-split .vp-photo {
+  aspect-ratio: 5 / 3;
+  margin-top: 2em;
+}
+
+.vcu-program .vp-steps {
+  counter-reset: vp-step;
+}
+
+.vcu-program .vp-steps > li {
+  position: relative;
+  padding: 20px 0 20px 64px;
+  border-top: 1px solid var(--vcu-gray);
+  counter-increment: vp-step;
+}
+
+.vcu-program .vp-steps > li:last-child {
+  border-bottom: 1px solid var(--vcu-dark-gray);
+}
+
+.vcu-program .vp-steps > li::before {
+  content: counter(vp-step, decimal-leading-zero);
+  position: absolute;
+  top: 18px;
+  left: 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--vcu-black);
+}
+
+/* ---------- Pull quote (optional) ---------- */
+
+.vcu-program .vp-quote {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.vcu-program .vp-quote__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.vcu-program .vp-quote__text::before {
+  content: "\201C";
+  display: block;
+  height: 0.66em;
+  font-size: 3em;
+  line-height: 1;
+}
+
+.vcu-program .vp-quote__cite {
+  margin-top: 28px;
+  font-size: 1rem;
+}
+
+.vcu-program .vp-quote__name {
+  display: block;
+  font-weight: 700;
+}
+
+/* ---------- Course highlights ---------- */
+
+.vcu-program .vp-courses {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 3.5vw, 40px);
+  color: var(--vcu-black);
+}
+
+.vcu-program .vp-course {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 28px;
+  background: var(--vcu-white);
+  border: 2px solid var(--vcu-black);
+  box-shadow: 8px 8px 0 var(--vcu-gold);
+}
+
+.vcu-program .vp-course__code {
+  align-self: flex-start;
+  margin-bottom: 20px;
+  padding: 6px 12px;
+  background: var(--vcu-black);
+  color: var(--vcu-gold);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.vcu-program .vp-course__title {
+  margin-bottom: 12px;
+  font-size: 1.3125rem;
+}
+
+/* ---------- Why VCU features ---------- */
+
+.vcu-program .vp-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--vp-gap);
+}
+
+.vcu-program .vp-feature {
+  padding: 28px;
+  background: var(--vcu-white);
+  border: 1px solid var(--vcu-gray);
+}
+
+.vcu-program .vp-feature__title {
+  margin-bottom: 10px;
+  font-size: 1.1875rem;
+}
+
+/* ---------- Career outcomes ---------- */
+
+.vcu-program .vp-figures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--vp-gap);
+}
+
+.vcu-program .vp-figure {
+  background: var(--vcu-white);
+  color: var(--vcu-dark-gray);
+  padding-top: 24px;
+  border: 1px solid var(--vcu-gray);
+  border-top: 5px solid var(--vcu-gold);
+  padding: 1.5em 2em;
+}
+
+.vcu-program .vp-figure__value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--vcu-black);
+}
+
+.vcu-program .vp-figure__label {
+  display: block;
+  max-width: 40ch;
+  margin-top: 12px;
+  font-size: 0.9em;
+}
+
+.vcu-program .vp-source {
+  margin-top: 24px;
+  font-size: 0.875rem;
+  color: var(--vcu-black);
+}
+
+.vcu-program .vp-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.vcu-program .vp-chips > li {
+  padding: 8px 16px;
+  border: 1px solid var(--vcu-black);
+  background: var(--vcu-black);
+  color: var(--vcu-gold);
+  font-weight: 500;
+}
+
+.vcu-program .vp-employers {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+
+.vcu-program .vp-employers > li:not(:last-child)::after {
+  content: "\00B7";
+  margin-inline: 12px;
+  color: var(--vcu-dark-gray);
+  font-weight: 700;
+}
+
+.vcu-program .vp-outcomes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 24px 56px;
+  margin-top: 56px;
+  padding: 32px;
+  border: 1px solid var(--vcu-dark-gray);
+}
+
+.vcu-program .vp-outcomes__stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--vcu-black);
+}
+
+.vcu-program .vp-outcomes__stat-label {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.vcu-program .vp-outcomes__note {
+  flex: 1 1 280px;
+  font-size: 0.875rem;
+  color: var(--vcu-dark-gray);
+}
+
+/* ---------- FAQ accordion ---------- */
+
+.vcu-program .vp-faq__item {
+  border-bottom: 1px solid var(--vcu-gray);
+}
+
+.vcu-program .vp-faq__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.vcu-program .vp-faq__q::-webkit-details-marker {
+  display: none;
+}
+
+.vcu-program .vp-faq__q::after {
+  content: "";
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background:
+    linear-gradient(var(--vcu-black), var(--vcu-black)) center / 12px 2px no-repeat,
+    linear-gradient(var(--vcu-black), var(--vcu-black)) center / 2px 12px no-repeat,
+    var(--vcu-gold);
+}
+
+.vcu-program .vp-faq__item[open] > .vp-faq__q::after {
+  background-size: 12px 2px, 2px 0;
+}
+
+.vcu-program .vp-faq__title {
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.vcu-program .vp-faq__a {
+  padding: 0 56px 24px 0;
+}
+
+/* ---------- Apply CTA ---------- */
+
+.vp-cta__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: center;
+  gap: var(--vp-gap);
+}
+
+.vp-cta__grid .vp-heading {
+  margin-bottom: 0.25em;
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+}
+
+.vp-cta__grid .vp-cta__text {
+  font-size: 1.15em;
+  max-width: 90%
+}
+
+.vp-cta__grid .vp-cta__question {
+  margin-top: 2em;
+  font-size: 0.9em;
+}
+
+.vcu-program .vp-deadlines {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1em;
+  padding: 1em;
+  text-align: center;
+}
+
+.vcu-program .vp-deadline {
+  padding: 1em;
+  border-right: 1px solid var(--vcu-dark-gray);
+}
+
+.vcu-program .vp-deadline:last-of-type {
+  border: none;
+}
+
+.vcu-program .vp-deadline dt {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vcu-gold);
+}
+
+.vcu-program .vp-deadline dd {
+  margin-top: 4px;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* ---------- Program director / related programs / contact ---------- */
+
+
+.vcu-program .vp-info__block .vp-eyebrow::before {
+  display: none;
+}
+
+.vcu-program .vp-info__block {
+  border: 1px solid var(--vcu-black);
+  padding: 1em;
+  margin: 1em 0;
+}
+
+.vcu-program .vp-info__name {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.vcu-program .vp-info__title {
+  margin-top: 4px;
+  font-size: 0.9em;
+}
+
+.vcu-program .vp-info__block .vp-link {
+  display: inline-block;
+  margin-top: 16px;
+}
+
+.vcu-program .vp-info__list > li + li {
+  margin-top: 12px;
+}
+
+.vcu-program .vp-info__list .vp-link {
+  margin-top: 0;
+}
+
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+
+@media (max-width: 1024px) {
+  .vcu-program .vp-cards,
+  .vcu-program .vp-features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .vcu-program .vp-hero__grid,
+  .vcu-program .vp-split,
+  .vcu-program .vp-cta__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .vcu-program .vp-hero__media {
+    max-width: 420px;
+  }
+
+  .vcu-program .vp-split .vp-photo {
+    aspect-ratio: 4 / 3;
+  }
+
+  .vcu-program .vp-stats__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 24px;
+    padding: 1em 0;
+  }
+
+  .vcu-program .vp-stat,
+  .vcu-program .vp-stat:first-child {
+    padding: 2px 0 2px 16px;
+    border-left: 2px solid var(--vcu-black);
+  }
+
+  .vcu-program .vp-courses {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 560px;
+  }
+
+  .vcu-program .vp-info {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .vcu-program .vp-stats__list,
+  .vcu-program .vp-cards,
+  .vcu-program .vp-features,
+  .vcu-program .vp-figures,
+  .vcu-program .vp-info,
+  .vcu-program .vp-deadlines {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .vcu-program .vp-hero__media {
+    margin-right: 16px;
+  }
+
+  .vcu-program .vp-hero__media::before {
+    inset: 16px -16px -16px 16px;
+  }
+
+  .vcu-program .vp-actions .vp-btn {
+    flex: 1 1 auto;
+  }
+
+  .vcu-program .vp-steps > li {
+    padding-left: 52px;
+  }
+
+  .vcu-program .vp-outcomes {
+    padding: 24px;
+  }
+  
+  .vcu-program .vp-stat,
+  .vcu-program .vp-stat:first-child{
+    padding: 0;
+  }
+  
+  .vcu-program .vp-stat,
+  .vcu-program .vp-stat:first-child,
+  .vcu-program .vp-deadline {
+  border: none;
+}
+
+  .vcu-program .vp-faq__a {
+    padding-right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vcu-program *,
+  .vcu-program *::before,
+  .vcu-program *::after {
+    transition: none !important;
+  }
+}
